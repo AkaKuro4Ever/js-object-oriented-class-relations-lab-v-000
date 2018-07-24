@@ -15,11 +15,7 @@ class Driver {
   }
 
   passengers() {
-    return store.passengers.filter(passenger => this.trips.passengers.).bind(this))
-  }
-
-  passengers() {
-    return store.passengers.filter(passenger => passenger.drivers.find(function()))
+    return this.trips().map(function(trip) {return trip.passenger()})
   }
 }
 
@@ -35,16 +31,12 @@ class Passenger {
   }
 
   drivers() {
-    return this.trips().driverId.filter(driver => driver.passengerId === this.id)
+    return this.trips().map(function(trip)
+      {return trip.driver()}
+    )
   }
 }
-// // Passenger class:
-// //
-// // A passenger has many trips, and has many drivers through trips.
-// // trips() - returns all of the trips that a passenger has taken
-// // drivers() - returns all of the drivers that has taken a passenger on a trip
-//
-//
+
 class Trip {
   constructor(driver, passenger) {
     this.id = ++tripId;
